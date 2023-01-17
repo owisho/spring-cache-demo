@@ -32,7 +32,7 @@ public class AESTest {
     public void DemoData() throws IOException, GeneralSecurityException {
 
         //加密密码
-        String key = "opera110crypt110opera110crypt110";
+        String key = "12345678901234567890123456789012";
         //偏移量
         String iv = "1357924680098765";
 
