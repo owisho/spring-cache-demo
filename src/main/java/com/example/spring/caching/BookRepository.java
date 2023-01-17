@@ -1,4 +1,4 @@
-package com.example.springcachedemo.caching;
+package com.example.spring.caching;
 
 public interface BookRepository {
     Book getByIsbn(String isbn);

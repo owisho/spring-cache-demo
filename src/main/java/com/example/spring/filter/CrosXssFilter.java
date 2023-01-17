@@ -1,4 +1,4 @@
-package com.example.springcachedemo.filter;
+package com.example.spring.filter;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;

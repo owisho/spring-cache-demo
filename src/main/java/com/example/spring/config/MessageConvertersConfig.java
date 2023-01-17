@@ -1,6 +1,6 @@
-package com.example.springcachedemo.config;
+package com.example.spring.config;
 
-import com.example.springcachedemo.util.XssUtils;
+import com.example.spring.util.XssUtils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;

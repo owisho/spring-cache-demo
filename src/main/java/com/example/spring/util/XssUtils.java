@@ -1,4 +1,4 @@
-package com.example.springcachedemo.util;
+package com.example.spring.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.translate.AggregateTranslator;

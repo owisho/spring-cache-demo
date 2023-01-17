@@ -1,4 +1,4 @@
-package com.example.springcachedemo.caching;
+package com.example.spring.caching;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

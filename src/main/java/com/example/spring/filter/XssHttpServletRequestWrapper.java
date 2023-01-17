@@ -1,4 +1,4 @@
-package com.example.springcachedemo.filter;
+package com.example.spring.filter;
 
 import org.apache.commons.lang3.StringUtils;
 
