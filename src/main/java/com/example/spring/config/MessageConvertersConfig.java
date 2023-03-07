@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.io.IOException;
@@ -22,8 +24,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
+//TODO spring 有一个json serializer 和 deserializer 的实现，查看相关内容确认是否可以替换当前实现，解决与WebMvcAutoConfiguration冲突的问题
 @Configuration
 public class MessageConvertersConfig extends WebMvcConfigurationSupport {
+
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {"classpath:/META-INF/resources/",
+            "classpath:/resources/", "classpath:/static/", "classpath:/public/"};
+
+    /**
+     * 因为使用WebMvcConfigurationSupport与WebMvcAutoConfiguration冲突，导致静态资源无法加载；
+     * 所以重写addResourceHandlers方法添加静态资源处理
+     */
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        ResourceHandlerRegistration registration = registry.addResourceHandler("/**");
+        registration.addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
+    }
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
