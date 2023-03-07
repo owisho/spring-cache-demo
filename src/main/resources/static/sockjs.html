@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script>
+        function runSockjs(){
+            var sock = new SockJS('http://localhost:9999/myHandler');
+            sock.onopen = function() {
+                console.log('open');
+                sock.send('test');
+            };
+            sock.onmessage = function(e) {
+                console.log('message', e.data);
+
+            };
+
+            sock.onclose = function() {
+                console.log('close');
+            };
+            // 关闭sockjs sock.close()
+        }
+    </script>
+</head>
+<body>
+    <a href="javascript:runSockjs()">运行 sockjs</a>
+</body>
+</html>
