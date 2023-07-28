@@ -4,14 +4,14 @@ import com.alibaba.fastjson2.JSONObject;
 import lombok.Data;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 
 import java.util.Date;
-import java.util.List;
 
 public interface ChatPptService {
 
     @GET("/chat-ppt/ppt/list")
-    Call<JSONObject> list();
+    Call<JSONObject> list(@Header("Authorization") String authorization);
 
     @Data
     class PptVO {
